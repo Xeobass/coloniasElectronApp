@@ -1,0 +1,18 @@
+
+  .login-card{
+    width: 70vw;
+    height: 35vh;
+  }
+
+  .login-header-image {
+    background-image: url('https://pbs.twimg.com/profile_images/551793997102850048/cmghs1-n.jpeg');
+    background-size: cover;
+  }
+
+  .main-div{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
