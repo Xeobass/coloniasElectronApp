@@ -1,17 +1,18 @@
 import { Component } from '@angular/core';
-import { Usuario } from 'src/models/usuario.model';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
 export class AppComponent {
-  title = 'colonias-app';
-  user:Usuario=new Usuario("nombre","1234");
-  loginValid:boolean=true
+  
+  title = 'Gesti&oacute;n Colonias Canguesas';
+  constructor(private route:Router){}
 
-
-  acceder(user:Usuario){
-    console.log("Accediendo con:",user);
+  ngOnInit(){
+    this.route.navigate(['acceso']);
   }
 }
