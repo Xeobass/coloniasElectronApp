@@ -1,5 +1,7 @@
 <!-- formulario acceso -->
 <div class="main-div">
+  <form novalidate (ngSubmit)="acceder(user)" #f="ngForm">  
+
     <mat-card class="login-card" style="box-shadow: none !important;">
       <mat-card-header>
         <div mat-card-avatar class="login-header-image"></div>
@@ -20,6 +22,7 @@
           <mat-form-field appearance="fill" style="width:50vw !important; margin: auto 10vw;">
             <mat-label>Clave</mat-label>
             <input matInput [(ngModel)]="user.passUsuario" type="password">
+            <input [style.display]="'none'" type="submit">
             <mat-icon matSuffix>password</mat-icon>
           </mat-form-field>
         </p>
@@ -29,6 +32,8 @@
         <button mat-raised-button color="primary" (click)="acceder(user);">Entrar</button>
       </mat-card-actions>
     </mat-card>
+    
+  </form>
   </div>
   
   <!-- fin formulario acceso -->

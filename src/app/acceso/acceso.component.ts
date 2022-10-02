@@ -10,16 +10,17 @@ import { LoginService } from '../services/login.service';
   styleUrls: ['./acceso.component.css']
 })
 export class AccesoComponent implements OnInit {
+  user:Usuario=new Usuario();
+  loginValid:boolean=true
+  horizontalPosition: MatSnackBarHorizontalPosition = 'right';
+  verticalPosition: MatSnackBarVerticalPosition = 'top';
+
 
   constructor(private loginService:LoginService,private _snackBar: MatSnackBar,private route:Router){}
 
   ngOnInit(): void {
   }
 
-  user:Usuario=new Usuario();
-  loginValid:boolean=true
-  horizontalPosition: MatSnackBarHorizontalPosition = 'right';
-  verticalPosition: MatSnackBarVerticalPosition = 'top';
   
 
   acceder(user:Usuario){
