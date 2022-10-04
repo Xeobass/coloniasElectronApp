@@ -13,12 +13,36 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import {MatDividerModule} from '@angular/material/divider';
-import {FormsModule} from '@angular/forms';
+import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatNativeDateModule} from '@angular/material/core';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import { MatListModule } from  '@angular/material/list';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatMenuModule} from '@angular/material/menu';
 
 //rutas
 import { PrincipalComponent } from './principal/principal.component';
 import { AccesoComponent } from './acceso/acceso.component';
+import { MenuComponent } from './menu/menu.component';
+import { GraphlayoutComponent } from './graphlayout/graphlayout.component';
+import { RegistroGatoComponent } from './gatos/registro-gato/registro-gato.component';
+import { ActualizaGatoComponent } from './gatos/actualiza-gato/actualiza-gato.component';
+import { ListaGatoComponent } from './gatos/lista-gato/lista-gato.component';
+import { RegistroVetesComponent } from './vetes/registro-vetes/registro-vetes.component';
+import { ActualizaVetesComponent } from './vetes/actualiza-vetes/actualiza-vetes.component';
+import { ListaVetesComponent } from './vetes/lista-vetes/lista-vetes.component';
+import { ActualizaAdoptComponent } from './adoptante/actualiza-adopt/actualiza-adopt.component';
+import { ListaAdoptComponent } from './adoptante/lista-adopt/lista-adopt.component';
+import { RegistroColoniaComponent } from './colonias/registro-colonia/registro-colonia.component';
+import { ActualizaColoniaComponent } from './colonias/actualiza-colonia/actualiza-colonia.component';
+import { ListaColoniaComponent } from './colonias/lista-colonia/lista-colonia.component';
+import { RegistroHuchaComponent } from './hucha/registro-hucha/registro-hucha.component';
+import { ActualizaHuchaComponent } from './hucha/actualiza-hucha/actualiza-hucha.component';
+import { ListaHuchaComponent } from './hucha/lista-hucha/lista-hucha.component';
+import { RegistroMercaComponent } from './mercadillo/registro-merca/registro-merca.component';
+import { RegistroPagoComponent } from './pago/registro-pago/registro-pago.component';
+import { RegistroAdoptComponent } from './adoptante/registro-adopt/registro-adopt.component';
 
 
 
@@ -26,7 +50,26 @@ import { AccesoComponent } from './acceso/acceso.component';
   declarations: [
     AppComponent,
     PrincipalComponent,
-    AccesoComponent
+    AccesoComponent,
+    MenuComponent,
+    GraphlayoutComponent,
+    RegistroGatoComponent,
+    ActualizaGatoComponent,
+    ListaGatoComponent,
+    RegistroVetesComponent,
+    ActualizaVetesComponent,
+    ListaVetesComponent,
+    ActualizaAdoptComponent,
+    ListaAdoptComponent,
+    RegistroColoniaComponent,
+    ActualizaColoniaComponent,
+    ListaColoniaComponent,
+    RegistroHuchaComponent,
+    ActualizaHuchaComponent,
+    ListaHuchaComponent,
+    RegistroMercaComponent,
+    RegistroPagoComponent,
+    RegistroAdoptComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +83,12 @@ import { AccesoComponent } from './acceso/acceso.component';
     MatDividerModule,
     FormsModule,
     HttpClientModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatNativeDateModule,
+    MatSidenavModule,
+    MatListModule,
+    MatToolbarModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]

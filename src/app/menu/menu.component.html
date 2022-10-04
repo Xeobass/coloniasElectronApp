@@ -1,0 +1,74 @@
+<!-- sub menú de opciones -->
+<mat-menu #gatos="matMenu">
+  <a mat-menu-item [routerLink]="'/reg-gato'"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="add_box"></mat-icon> Registrar nuevo Gato </a>
+  <a mat-menu-item [routerLink]="'/actualiza-gato'"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="update "></mat-icon> Actualizar datos Gato </a>
+  <a mat-menu-item [routerLink]="'/lista-gato'"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="list_alt"></mat-icon> Listado de Gatos </a>
+</mat-menu>
+<mat-menu #vetes="matMenu">
+  <a mat-menu-item [routerLink]="'/reg-vete'"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="add_box"></mat-icon> Registrar nueva Clínica Veterinario </a>
+  <a mat-menu-item [routerLink]="'/actualiza-vete'"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="update "></mat-icon> Actualizar datos Clínica Veterinaria </a>
+  <a mat-menu-item [routerLink]="'/lista-vete'"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="list_alt"></mat-icon> Listado de Clinicas Veterinarias </a>
+</mat-menu>
+<mat-menu #adopt="matMenu">
+  <a mat-menu-item [routerLink]="'/reg-adopt'"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="add_box"></mat-icon> Registrar Adoptante/Acogida </a>
+  <a mat-menu-item [routerLink]="'/actualiza-adopt'"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="update "></mat-icon> Actualizar datos Adoptante/Acogida </a>
+  <a mat-menu-item [routerLink]="'/lista-adopt'"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="list_alt"></mat-icon> Listado de Adoptantes/Acogidas </a>
+</mat-menu>
+<mat-menu #colonias="matMenu">
+  <a mat-menu-item [routerLink]="'/reg-colonia'"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="add_box"></mat-icon> Registrar nueva Colonia </a>
+  <a mat-menu-item [routerLink]="'/actualiza-colonia'"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="update "></mat-icon> Actualizar datos Colonia </a>
+  <a mat-menu-item [routerLink]="'/lista-colonia'"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="list_alt"></mat-icon> Listado de Colonias </a>
+</mat-menu>
+<mat-menu #fondos="matMenu">
+  <a mat-menu-item [matMenuTriggerFor]="huchas"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="add_box"></mat-icon> Huchas </a>
+  <a mat-menu-item [routerLink]="'/reg-mercadillo'"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="update "></mat-icon> Mercadillos </a>
+  <a mat-menu-item [routerLink]="'/reg-pago'"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="list_alt"></mat-icon> Pagos </a>
+</mat-menu>
+<mat-menu #huchas="matMenu">
+  <a mat-menu-item [routerLink]="'/reg-hucha'"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="add_box"></mat-icon>Registrar nueva Hucha </a>
+  <a mat-menu-item [routerLink]="'/actualiza-hucha'"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="update "></mat-icon>Actualizar datos Hucha</a>
+  <a mat-menu-item [routerLink]="'/lista-hucha'"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="list_alt"></mat-icon> Listado de Huchas </a>
+</mat-menu>
+<!-- fin submenú -->
+
+<mat-toolbar>
+    <mat-toolbar-row>
+      <!--<button mat-icon-button>
+        <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
+      </button>
+      <h1>Menú</h1>-->
+      <span class="menu-spacer"></span>
+      <div>
+        <a mat-button [routerLink]="'/principal'"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon> Inicio </a>
+        <a mat-button [matMenuTriggerFor]="gatos"> <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="pets"></mat-icon> Ficha Gatos </a>
+        <a mat-button [matMenuTriggerFor]="vetes"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="local_hospital"></mat-icon> Ficha Veterinarios </a>
+        <a mat-button [matMenuTriggerFor]="adopt"><mat-icon aria-hidden="false" aria-label="Example person icon" fontIcon="person"></mat-icon> Ficha Adoptantes/Acogidas </a>
+        <a mat-button [matMenuTriggerFor]="colonias"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="place"></mat-icon> Colonias </a>
+        <a mat-button [matMenuTriggerFor]="fondos"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="attach_money"></mat-icon> Fondos </a>
+      </div>
+    </mat-toolbar-row>
+  
+    <!--<mat-toolbar-row>
+        <span style="font-size: 12px;">Herramienta de gestión y control de Colonias Canguesas</span>
+      </mat-toolbar-row>
+  </mat-toolbar>-->
+  
+  <!--<mat-sidenav-container>
+    <mat-sidenav #sidenav>
+      <mat-nav-list>
+  
+        <a mat-list-item [routerLink]="'/accounts'"> <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon> Inicio </a>
+        <a mat-list-item [routerLink]="'/create-account'"> <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="pets"></mat-icon> Ficha Gatos </a>
+        <a mat-list-item [routerLink]="'/contacts'"> <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="local_hospital"></mat-icon> Ficha Veterinarios </a>
+        <a mat-list-item [routerLink]="'/create-contact'"> <mat-icon aria-hidden="false" aria-label="Example person icon" fontIcon="person"></mat-icon> Ficha Adoptantes/Acogidas </a>
+        <a mat-list-item [routerLink]="'/activities'"> <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon> Colonias </a>
+        <a mat-list-item (click)="sidenav.toggle()" href="" mat-list-item><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="exit_to_app"></mat-icon> Salir</a>
+  
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <div style="height: 87.1vh;">
+        <router-outlet></router-outlet>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>-->

@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Usuario } from 'src/models/usuario.model';
 import { LoginService } from '../services/login.service';
 
+
 @Component({
   selector: 'app-acceso',
   templateUrl: './acceso.component.html',
@@ -14,6 +15,7 @@ export class AccesoComponent implements OnInit {
   loginValid:boolean=true
   horizontalPosition: MatSnackBarHorizontalPosition = 'right';
   verticalPosition: MatSnackBarVerticalPosition = 'top';
+  estadoMenu:boolean=true;
 
 
   constructor(private loginService:LoginService,private _snackBar: MatSnackBar,private route:Router){}
@@ -28,7 +30,6 @@ export class AccesoComponent implements OnInit {
     
     this.loginService.login(user.nombreUsuario!,user.passUsuario!).subscribe((respuesta:any)=>{
       console.log("Respuesta: ", respuesta);
-
       if(!respuesta){
         this._snackBar.open('Usuario o contraseña incorrecta', "Cerrar", {
           horizontalPosition: this.horizontalPosition,

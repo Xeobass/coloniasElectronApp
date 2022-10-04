@@ -8,10 +8,10 @@ import { Router } from '@angular/router';
 })
 
 export class AppComponent {
-  
   title = 'Gesti&oacute;n Colonias Canguesas';
+  estadoMenu:boolean=false;
   constructor(private route:Router){}
-
+  mostrarMenu:boolean = false;
   ngOnInit(){
     this.route.navigate(['acceso']);
   }
