@@ -1,2 +1,166 @@
 <app-menu></app-menu>
-<p>registro-gato works!</p>
+
+<!-- formulario gato -->
+
+  <mat-grid-list cols="3" rowHeight="1:1.3">
+  <mat-grid-tile>
+      <mat-grid-tile-header>Datos del Gato</mat-grid-tile-header>
+     <div style="margin-top: -13vh; width: 100%;">
+      <form style="text-align: center;" [formGroup]="datosGatoForm">
+
+          <p>
+            <mat-form-field appearance="fill" style="width: 90%;">
+              <mat-label>Nombre</mat-label>
+              <input matInput placeholder="Nombre gato" formControlName="nombre_gato">
+            </mat-form-field>
+          </p>
+          
+           <p>
+            <mat-form-field appearance="fill" style="width: 90%;">
+              <mat-label>Fecha de Nacimiento</mat-label>
+              <input matInput [matDatepicker]="fechaNacGato" formControlName="fecNac">
+              <mat-hint>DD/MM/YYYY</mat-hint>
+              <mat-datepicker-toggle matSuffix [for]="fechaNacGato"></mat-datepicker-toggle>
+              <mat-datepicker #fechaNacGato ></mat-datepicker>
+              </mat-form-field>
+            </p>
+            
+            <p>
+              <mat-form-field appearance="fill" style="width: 90%;">
+                <mat-label>Selecciona colonia</mat-label>
+                <mat-select formControlName="colonia_selector" [(value)]="selectedColonia">
+                  <mat-option *ngFor="let colonia of colonias" [value]="colonia">{{colonia.nombre_colonia}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </p>
+          
+            <p>
+              <mat-form-field appearance="fill" style="width: 90%;">
+                  <mat-label>Número Chip</mat-label>
+                  <input matInput placeholder="Número chip" formControlName="num_chip">
+              </mat-form-field>
+            </p>
+          
+            <mat-divider style="width: 95%; margin: 0 auto;"></mat-divider>
+            <p>
+              <mat-form-field  appearance="fill" style="width: 90%;">
+                <mat-label>Subir Foto</mat-label>
+                <ngx-mat-file-input formControlName="basicfile" placeholder="Subir Foto"></ngx-mat-file-input>
+                <mat-icon matSuffix>camera_enhance</mat-icon>
+              </mat-form-field>
+            </p>
+            <section>
+              <mat-checkbox color="primary" formControlName="adoptadoCheck" style="float: right;" [(ngModel)]="adoptadoModel" (change)="desbloquoForm()">Adoptado / En Acogida</mat-checkbox>
+            </section>
+          </form>
+        </div>
+  </mat-grid-tile>
+        
+  <mat-grid-tile>
+    <mat-grid-tile-header>Datos adoptante / acogida</mat-grid-tile-header>
+  
+    <div style="margin-top: 5vh; width: 100%;">
+      <form style="text-align: center;" [formGroup]="datosGatoFormAdopt">
+
+      <p>
+        <mat-form-field appearance="fill" style="width: 90%;">
+          <mat-label>Nombre adoptante/acogida</mat-label>
+          <input matInput placeholder="Adoptante/acogida" formControlName="nombre_adopt">
+        </mat-form-field>
+      </p>
+      <p>
+  
+        <mat-form-field appearance="fill" style="width: 40%;">
+          <mat-label>Primer apellido</mat-label>
+          <input matInput placeholder="Primer apellido" formControlName="apellido1">
+        </mat-form-field>
+  
+        <mat-form-field appearance="fill" style="padding-left: 3vw; width: 40%;">
+          <mat-label>Segundo apellido</mat-label>
+          <input matInput placeholder="Segundo apellido" formControlName="apellido2">
+        </mat-form-field>
+      </p>
+
+      <p>
+        <mat-form-field appearance="fill"style="width: 90%;">
+          <mat-label>Dirección</mat-label>
+          <input matInput placeholder="Dirección"  formControlName="direccion">
+        </mat-form-field>
+      </p>
+    
+      <p>
+        <mat-form-field appearance="fill" style="width: 90%;">
+          <mat-label>Provincia</mat-label>
+          <input matInput placeholder="Provincia"  formControlName="provincia">
+        </mat-form-field>
+      </p>
+    
+      <p>
+        <mat-form-field appearance="fill" style="width: 90%;">
+          <mat-label>Cod. Postal</mat-label>
+          <input matInput placeholder="Cod. Postal" size="5" formControlName="codpos">
+        </mat-form-field>
+      </p>
+    
+      <p>
+        <mat-form-field appearance="fill" style="width: 90%;">
+          <mat-label>Email</mat-label>
+          <input matInput placeholder="Email"  formControlName="email">
+        </mat-form-field>
+      </p>
+    
+      <p>
+        <mat-form-field appearance="fill" style="width: 90%;">
+          <mat-label>Teléfono</mat-label>
+          <input matInput placeholder="Teléfono"formControlName="telefono">
+        </mat-form-field>
+      </p>
+
+      <p>
+        <mat-checkbox color="primary" style="float: right;" formControlName="enAcogida">En Acogida</mat-checkbox>
+      </p>
+    </form>
+    </div>
+  </mat-grid-tile>
+
+    <mat-grid-tile>
+      <mat-grid-tile-header>Registro DNI</mat-grid-tile-header>
+      <div style="margin-top: -36vh; width: 100%;">
+        <form style="text-align: center;" [formGroup]="datosGatoFormAdoptDni">
+        <p>
+        <mat-form-field appearance="fill" style="width: 90%;">
+          <mat-label>Nº DNI</mat-label>
+          <input matInput placeholder="Nº DNI" formControlName="numDni">
+        </mat-form-field>
+        </p>
+        <p>
+        <mat-form-field  appearance="fill" style="width: 90%;">
+          <mat-label>DNI Imagen Frontal</mat-label>
+          <ngx-mat-file-input formControlName="basicfilednifront"  placeholder="DNI Frontal"></ngx-mat-file-input>
+          <mat-icon matSuffix>attachment</mat-icon>
+        </mat-form-field>
+        </p>
+        <p>
+        <mat-form-field  appearance="fill" style="width: 90%;">
+          <mat-label>DNI Imagen Trasera</mat-label>
+          <ngx-mat-file-input formControlName="basicfiledniback" placeholder="DNI Trasera"></ngx-mat-file-input>
+          <mat-icon matSuffix>attachment</mat-icon>
+        </mat-form-field>
+        </p>
+      </form>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+      
+  <div style="float: right;">
+    <button mat-raised-button color="warn"><mat-icon>cancel</mat-icon> Cancelar</button>
+    <button mat-raised-button color="primary" style="margin: 0 2vw;" (click)="guardarDatos();"><mat-icon>check</mat-icon> Guardar</button>
+  </div>
+
+      
+
+    
+
+
+
+<!-- fin formulario gato -->

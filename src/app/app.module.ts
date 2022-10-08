@@ -20,6 +20,13 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import { MatListModule } from  '@angular/material/list';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatMenuModule} from '@angular/material/menu';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatSelectModule} from '@angular/material/select';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import { MaterialFileInputModule } from 'ngx-material-file-input';
+import {MatGridListModule} from '@angular/material/grid-list';
+
+
 
 //rutas
 import { PrincipalComponent } from './principal/principal.component';
@@ -88,7 +95,13 @@ import { RegistroAdoptComponent } from './adoptante/registro-adopt/registro-adop
     MatSidenavModule,
     MatListModule,
     MatToolbarModule,
-    MatMenuModule
+    MatMenuModule,
+    ReactiveFormsModule,
+    MatDatepickerModule,
+    MatSelectModule,
+    MatCheckboxModule,
+    MaterialFileInputModule,
+    MatGridListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
