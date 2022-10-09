@@ -12,4 +12,8 @@ export class GatosService {
   registraGato(gato:any):any{
     return this.httpClient.post(`${this.REST_API_SERVER}/gatos`,gato);
   };
+
+  registraDatosGato(datosgato:any):any{
+    return this.httpClient.post(`${this.REST_API_SERVER}/datosGatos`,datosgato);
+  };
 }

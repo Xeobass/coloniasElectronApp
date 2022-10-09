@@ -26,6 +26,14 @@
             <mat-icon matSuffix>password</mat-icon>
           </mat-form-field>
         </p>
+        <p>
+          <mat-form-field appearance="fill" style="width:50vw !important; margin: auto 10vw;">
+            <mat-label>C&oacute;digo Protectora</mat-label>
+            <input matInput [(ngModel)]="user.codProtectora" type="password">
+            <input [style.display]="'none'" type="submit">
+            <mat-icon matSuffix>password</mat-icon>
+          </mat-form-field>
+        </p>
       </mat-card-content>
       <mat-divider inset></mat-divider>
       <mat-card-actions align="end">

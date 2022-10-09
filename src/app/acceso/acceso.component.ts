@@ -28,7 +28,7 @@ export class AccesoComponent implements OnInit {
   acceder(user:Usuario){
     console.log("Accediendo con:",user);
     
-    this.loginService.login(user.nombreUsuario!,user.passUsuario!).subscribe((respuesta:any)=>{
+    this.loginService.login(user.nombreUsuario!,user.passUsuario!, user.codProtectora!).subscribe((respuesta:any)=>{
       console.log("Respuesta: ", respuesta);
       if(!respuesta){
         this._snackBar.open('Usuario o contraseña incorrecta', "Cerrar", {
@@ -38,6 +38,7 @@ export class AccesoComponent implements OnInit {
         });
       }else{
         console.log("accediendo a la aplicación!");
+        sessionStorage.setItem("prote",user.codProtectora);
         this.route.navigate(['principal']);
       }
 

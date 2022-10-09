@@ -14,8 +14,8 @@ export class LoginService {
   constructor(private httpClient: HttpClient) { }
 
   //peticion con los datos del usuario
-  login(usr:string,pss:string){
+  login(usr:string,pss:string,cp:string){
     console.log("Se envía a: ", this.REST_API_SERVER);
-    return this.httpClient.get(`${this.REST_API_SERVER}/login?nombre_usuario=${usr}&pass_usuario=${pss}`);
+    return this.httpClient.get(`${this.REST_API_SERVER}/login?nombre_usuario=${usr}&pass_usuario=${pss}&prote=${cp}`);
 }
 }

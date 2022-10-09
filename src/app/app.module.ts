@@ -25,6 +25,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { MaterialFileInputModule } from 'ngx-material-file-input';
 import {MatGridListModule} from '@angular/material/grid-list';
+import {MatDialogModule} from '@angular/material/dialog';
 
 
 
@@ -50,6 +51,7 @@ import { ListaHuchaComponent } from './hucha/lista-hucha/lista-hucha.component';
 import { RegistroMercaComponent } from './mercadillo/registro-merca/registro-merca.component';
 import { RegistroPagoComponent } from './pago/registro-pago/registro-pago.component';
 import { RegistroAdoptComponent } from './adoptante/registro-adopt/registro-adopt.component';
+import { OkSaveDataComponent } from './mensajes/dialogs/ok-save-data/ok-save-data.component';
 
 
 
@@ -76,7 +78,8 @@ import { RegistroAdoptComponent } from './adoptante/registro-adopt/registro-adop
     ListaHuchaComponent,
     RegistroMercaComponent,
     RegistroPagoComponent,
-    RegistroAdoptComponent
+    RegistroAdoptComponent,
+    OkSaveDataComponent
   ],
   imports: [
     BrowserModule,
@@ -101,7 +104,8 @@ import { RegistroAdoptComponent } from './adoptante/registro-adopt/registro-adop
     MatSelectModule,
     MatCheckboxModule,
     MaterialFileInputModule,
-    MatGridListModule
+    MatGridListModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]
