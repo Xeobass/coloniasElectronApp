@@ -52,6 +52,7 @@ import { RegistroMercaComponent } from './mercadillo/registro-merca/registro-mer
 import { RegistroPagoComponent } from './pago/registro-pago/registro-pago.component';
 import { RegistroAdoptComponent } from './adoptante/registro-adopt/registro-adopt.component';
 import { OkSaveDataComponent } from './mensajes/dialogs/ok-save-data/ok-save-data.component';
+import {MatBadgeModule} from '@angular/material/badge';
 
 
 
@@ -105,7 +106,8 @@ import { OkSaveDataComponent } from './mensajes/dialogs/ok-save-data/ok-save-dat
     MatCheckboxModule,
     MaterialFileInputModule,
     MatGridListModule,
-    MatDialogModule
+    MatDialogModule,
+    MatBadgeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

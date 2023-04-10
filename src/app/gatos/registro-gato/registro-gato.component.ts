@@ -27,6 +27,7 @@ import { DniService } from 'src/app/services/dni.service';
 })
 export class RegistroGatoComponent implements OnInit {
   adoptadoModel=false;
+  acogidaModel=false;
   colonias:any=null;
   selectedColonia = [{id_colonia: 1,nombre_colonia: 'SIN COLONIA ESPECÍFICA',tb_id_protes: 0}];
 
@@ -59,7 +60,7 @@ export class RegistroGatoComponent implements OnInit {
     codpos:new FormControl(),
     email:new FormControl(),
     telefono:new FormControl(),
-    enAcogida:new FormControl()
+    enAcogida:new FormControl(false)
   });
 
   public datosGatoFormAdoptDni:FormGroup = this._formBuilder.group({
@@ -71,7 +72,11 @@ export class RegistroGatoComponent implements OnInit {
   ngOnInit(): void {
     this.dateAdapter.setLocale('es');
     setTimeout(() => this.datosGatoFormAdopt.disable());
-    setTimeout(() => this.datosGatoFormAdoptDni.disable());    
+    setTimeout(() => this.datosGatoFormAdoptDni.disable()); 
+    
+    //obtener la lista de colonias
+    //TODO
+    //ajustar a la prote que pertenecen los datos, ahora está a colonias canguesas
     this.coloniaService.obtenerColonias().subscribe((coloniasData:any)=>{
       this.colonias=coloniasData;
       this.selectedColonia = coloniasData[coloniasData.findIndex((col:any) => col.id_colonia==1)];
@@ -79,10 +84,6 @@ export class RegistroGatoComponent implements OnInit {
   }
 
   guardarDatos(){
-    console.log("Guardando datos!:", this.datosGatoForm);
-    console.log("segundo formulario: ",this.datosGatoFormAdopt);
-    console.log("tercero formulario: ",this.datosGatoFormAdoptDni);
-
     let gato={
       id_gato:null,
       nombre_gato:this.datosGatoForm.get("nombre_gato")?.value.toUpperCase(),
@@ -101,12 +102,8 @@ export class RegistroGatoComponent implements OnInit {
       tb_colonia_fk:auxColoniaSeleccionada.id_colonia
     };
 
-    console.log("datos del gato: ",datosGato);
-
-
 
     if(this.datosGatoForm.get("adoptadoCheck")?.value){
-      /*console.log("gato adoptado");
       let adoptante={
         nombre_adopt:this.datosGatoFormAdopt.get("nombre_adopt")?.value.toUpperCase(),
         apellido1:this.datosGatoFormAdopt.get("apellido1")?.value.toUpperCase(),
@@ -126,32 +123,36 @@ export class RegistroGatoComponent implements OnInit {
         basicfiledniback:null
       };
 
-      this.dniService.registraDni(dni).subscribe((reqDni:any)=>{
-        console.log("dni registrado: ",reqDni);
+      this.dniService.registraDni(dni).subscribe((reqDni:any)=>{ //guardar el dni
         adoptante.dniFK=reqDni.id;
 
-        this.adoptanteService.registraAdoptante(adoptante).subscribe((resAdoptante:any)=>{
-          console.log("guardado adoptante: ",resAdoptante);
+        this.adoptanteService.registraAdoptante(adoptante).subscribe((resAdoptante:any)=>{//guardar adoptante
           gato.tb_datos_adopt_fk=resAdoptante.id;
-  
-          this.gatoService.registraGato(gato).subscribe((resp:any)=>{
-            this.dialog.open(OkSaveDataComponent,{
-              width: '25em'})
+
+          this.gatoService.registraDatosGato(datosGato).subscribe((reqDatosGatos:any)=>{//guardar datos gato
+            gato.tb_datos_gato_fk=reqDatosGatos.id;
+
+            this.gatoService.registraGato(gato).subscribe((resp:any)=>{//guardar gato
+              this.dialog.open(OkSaveDataComponent,{
+                width: '25em'})
+            });
           });
         });
       });
-*/
+
     }else{
-      /*
-      this.gatoService.registraGato(gato).subscribe((resp:any)=>{
-        this.dialog.open(OkSaveDataComponent,{
-          width: '25em'})
-      });*/
+      //el gato no está adoptado o acogido
+      this.gatoService.registraDatosGato(datosGato).subscribe((reqDatosGatos:any)=>{
+        gato.tb_datos_gato_fk=reqDatosGatos.id;
+        this.gatoService.registraGato(gato).subscribe((resp:any)=>{
+          this.dialog.open(OkSaveDataComponent,{
+            width: '25em'})
+        });
+      });
     }
   }
 
   desbloquoForm(){
-    console.log("desbloqueo");
     if(this.adoptadoModel){
       setTimeout(() => this.datosGatoFormAdopt.enable());
       setTimeout(() => this.datosGatoFormAdoptDni.enable());
@@ -159,6 +160,6 @@ export class RegistroGatoComponent implements OnInit {
       setTimeout(() => this.datosGatoFormAdopt.disable());
       setTimeout(() => this.datosGatoFormAdoptDni.disable());
     }
-
   }
+
 }
